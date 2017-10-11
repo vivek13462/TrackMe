@@ -5,7 +5,8 @@
       <th>Threat Report By</th>    
       <th>Latitude</th>
       <th>Longitude</th>
-      <th>Message</th>   
+      <th>Message</th>
+      <th>Help User</th>    
     </tr>
     {{# each items }}
     <tr>
@@ -13,6 +14,7 @@
       <td>{{ this.location.lat}}</td>
       <td>{{ this.location.lng}}</td>
       <td>{{ this.location.message}}</td>
+      <td><h3 class="text-center"><a href="/Navigate" class="btn btn-primary">Navigate Police</a></h3></td>
     </tr>
     {{/each}}
   </table>

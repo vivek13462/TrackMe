@@ -94,6 +94,11 @@ app.get('/get-allThreats', function (req,res) {
   });
 });
 
+app.get('/Navigate', function (req,res) {
+  console.log(req);
+  res.render('NearbyPolice');
+});
+
 var nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport
