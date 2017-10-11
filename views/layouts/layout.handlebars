@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GeoTracker</title>
+  <title>TRS</title>
   <link rel="icon" type="image/png" href="/img/map.png"/>
   <link rel="stylesheet" type="text/css" href="/css/mapstyle.css">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
@@ -21,14 +21,19 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>GeoTracker</a>
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>Threat Reporting System</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            {{#if user}}
+            {{#if user.agent_name}}
+              {{#if condition}}
             <li><a href="/">Dashboard</a></li>
-            <li><a href="/users/sentlocations">Sent Locations</a></li>
+            <li><a href="/users/sentlocations">Sent Locations</a></li> 
             <li><a href="/users/logout">Logout</a></li>
+              {{else}}
+            <li><a href="/users/allthreats">All Threats Report</a></li>
+            <li><a href="/users/logout">Logout</a></li>
+              {{/if}}
             {{else}}
             <li><a href="/users/login">Login</a></li>
             <li><a href="/users/register">Register</a></li>
@@ -64,7 +69,7 @@
   <!--- Footer Start --->
   <footer class="footer">
      <div class="container-fluid">
-       <h5 class="text-center">&copy; 2016 GeoTracker, Inc.</h5>
+       <h5 class="text-center">&copy; 2018 Vivek Tiwari, Inc.</h5>
      </div>
   </footer>
   <!--- Footer end --->

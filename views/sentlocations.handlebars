@@ -5,12 +5,14 @@
       <th>Latitude</th>
       <th>Longitude</th>
       <th>Message</th>
+      <th>Status</th>     
     </tr>
     {{# each items }}
     <tr>
       <td>{{ this.location.lat}}</td>
       <td>{{ this.location.lng}}</td>
       <td>{{ this.location.message}}</td>
+      <td>On the Way</td>       
     </tr>
     {{/each}}
   </table>

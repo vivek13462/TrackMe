@@ -30,20 +30,20 @@ function init() {
   if (navigator.geolocation) {
 
     navigator.geolocation.getCurrentPosition(function(position) {
-
+    console.log(position);
       // Gather latitude and longitude coordinates
       pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-
+        
       // Inserts a message and geo coords of the user.
       // Also creates a button to send the user's info to the FBI.
-      infoWindowContents = '<h2>You have been located!</h2>' +
+      infoWindowContents = '<h2>You have been tracked!</h2>' +
         '<p>Latitude: ' + pos.lat + '</p>' +
         '<p>Longitude: ' + pos.lng + '</p>' +
         '<textarea id="textbox" rows=4 cols=39>Enter your message</textarea>' +
-        '<p><input class="btn btn-primary" type="submit" id="giantMess" onclick=sendInfo() value="Send To FBI" /></p>';
+        '<p><input class="btn btn-primary" type="submit" id="giantMess" onclick=sendInfo() value="Report Threat" /></p>';
 
       infoWindow = new google.maps.InfoWindow({
         content: infoWindowContents

@@ -17,8 +17,16 @@ router.get('/login', function(req, res){
 	res.render('login');
 });
 
+router.get('/adminlogin', function(req, res){
+	res.render('adminlogin');
+});
+
 router.get('/sentlocations', function(req, res){
 	res.render('sentlocations');
+});
+
+router.get('/allthreats', function(req, res){
+	res.render('AllThreats');
 });
 
 router.post('/register', function(req, res){

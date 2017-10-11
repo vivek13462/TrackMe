@@ -3,7 +3,12 @@ var router = express.Router();
 
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
-	res.render('index');
+    if(req.user.agent_name != "Admin")
+	res.render('index',{items: req.user.agent_name, condition:true});
+    else if(req.user.agent_name = "Admin")
+        res.render('index',{items: req.user.agent_name, condition:false});
+    else
+      res.render('index',{items: req.user.agent_name});  
 });
 
 function ensureAuthenticated(req, res, next) {

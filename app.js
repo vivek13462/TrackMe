@@ -12,6 +12,7 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://cpsc473:webdev@ds053146.mlab.com:53146/473projects');
+/*mongoose.connect('mongodb://vivek.13462:montuu8088@ds115035.mlab.com:15035/trs');*/
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -85,6 +86,14 @@ app.get('/get-location', function (req,res) {
   });
 });
 
+app.get('/get-allThreats', function (req,res) {
+  var user = req.user.agent_id;
+  db.collection('locations').find({ }).toArray(function (err, resultArray) {
+    if (err) return console.log(err);
+    res.render('AllThreats', {items: resultArray});
+  });
+});
+
 var nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport
@@ -122,7 +131,7 @@ app.post('/', function(req, res) {
     // setup e-mail data with unicode symbols
     var mailOptions = {
       from: userName, // sender address
-      to: 'roshan.savio93@gmail.com', // list of receivers
+      to: 'vivek.13462@gmail.com', // list of receivers
       subject: 'User Location for FBI', // Subject line
       text: "User Name: " + userName + ', Latitude: ' + userLat + ', Longitude: ' + userLng + ', Message: ' + userMsg, // plaintext body
       html: "User Name: " + userName + ', Latitude: ' + userLat + ', Longitude: ' + userLng + ', Message: ' + userMsg // html body
