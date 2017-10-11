@@ -22,7 +22,7 @@ router.get('/adminlogin', function(req, res){
 });
 
 router.get('/sentlocations', function(req, res){
-	res.render('sentlocations');
+	res.render('sentlocations', {condition:true});
 });
 
 router.get('/allthreats', function(req, res){
