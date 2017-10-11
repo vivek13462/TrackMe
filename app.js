@@ -82,7 +82,7 @@ app.get('/get-location', function (req,res) {
   var user = req.user.agent_id;
   db.collection('locations').find({ userid: { $eq: user }}).toArray(function (err, resultArray) {
     if (err) return console.log(err);
-    res.render('sentlocations', {items: resultArray});
+    res.render('sentlocations', {items: resultArray, condition:true});
   });
 });
 
