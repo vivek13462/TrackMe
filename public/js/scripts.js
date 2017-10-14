@@ -1,9 +1,11 @@
 
-function sendRequest(){
-                var lat = document.getElementById('lat').innerHTML;
-                var lng = document.getElementById('lng').innerHTML;
+function sendRequest(lat,lng){
+                alert(lat);
+                alert(lng);
+                var user_lat = lat;
+                var user_lng = lng;
                 var info =[];
-                info[0]=lat; info[1]=lng
+                info[0]=user_lat; info[1]=user_lng
                     $.ajax({
                         url:"/Navigate/" + info,
                         type: "POST",

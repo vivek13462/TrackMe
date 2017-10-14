@@ -2,19 +2,21 @@
 <h3 class="text-center"><a href="/get-allThreats" class="btn btn-primary">Check All threats Reported</a></h3>
   <table class="table table-bordered">
     <tr>
-      <th>Threat Report By</th>    
+      <th>Sr.No</th>
+      <th>User</th>    
       <th>Latitude</th>
       <th>Longitude</th>
       <th>Message</th>
       <th>Help User</th>    
     </tr>
-    {{# each items }}
+    {{# each items as |item index|}}
     <tr>
+      <td>{{index}}</td>
       <td id="uname">{{ this.username}}</td>    
       <td id="lat">{{ this.location.lat}}</td>
       <td id="lng">{{ this.location.lng}}</td>
       <td id="msg">{{ this.location.message}}</td>
-      <td><h3 class="text-center"><button onclick="sendRequest()">Navigate</button></h3></td>
+      <td><h3 class="text-center"><button onclick="sendRequest('{{ this.location.lat}}','{{ this.location.lng}}')" class="btn btn-primary">Navigate</button></h3></td>
     </tr>
     {{/each}}
   </table>
