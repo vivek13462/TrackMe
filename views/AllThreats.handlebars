@@ -10,11 +10,11 @@
     </tr>
     {{# each items }}
     <tr>
-      <td>{{ this.username}}</td>    
-      <td>{{ this.location.lat}}</td>
-      <td>{{ this.location.lng}}</td>
-      <td>{{ this.location.message}}</td>
-      <td><h3 class="text-center"><a href="/Navigate" class="btn btn-primary">Navigate Police</a></h3></td>
+      <td id="uname">{{ this.username}}</td>    
+      <td id="lat">{{ this.location.lat}}</td>
+      <td id="lng">{{ this.location.lng}}</td>
+      <td id="msg">{{ this.location.message}}</td>
+      <td><h3 class="text-center"><button onclick="sendRequest()">Navigate</button></h3></td>
     </tr>
     {{/each}}
   </table>

@@ -94,9 +94,17 @@ app.get('/get-allThreats', function (req,res) {
   });
 });
 
+app.post('/Navigate/:info', function (req,res) {
+    console.log(req.params.info);
+    res.send(JSON.stringify({
+					"result": req.params.info
+				}));
+});
+    
 app.get('/Navigate', function (req,res) {
-  console.log(req);
-  res.render('NearbyPolice');
+    res.send(JSON.stringify({
+					"result": req.params.info
+				}));
 });
 
 var nodemailer = require('nodemailer');

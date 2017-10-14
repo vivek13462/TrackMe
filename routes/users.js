@@ -25,6 +25,11 @@ router.get('/sentlocations', function(req, res){
 	res.render('sentlocations', {condition:true});
 });
 
+router.get('/nearpolice/:info', function(req, res){
+    console.log(req.params.info);
+	res.render('NearbyPolice',{items: req.params.info});
+});
+
 router.get('/allthreats', function(req, res){
 	res.render('AllThreats');
 });
