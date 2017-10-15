@@ -10,6 +10,9 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var Yelp = require("yelp");
+var configAuth = require('./config/auth');
+var yelp = new Yelp(configAuth.yelp);
 
 mongoose.connect('mongodb://cpsc473:webdev@ds053146.mlab.com:53146/473projects');
 /*mongoose.connect('mongodb://vivek.13462:montuu8088@ds115035.mlab.com:15035/trs');*/
@@ -106,6 +109,26 @@ app.get('/Navigate', function (req,res) {
 					"result": req.params.info
 				}));
 });
+
+    app.get('/find', function(req, res) {
+        
+        console.log("YELP HITTTT");
+        
+        yelp.search({
+            term: "police",
+           
+            location: "Fullerton"
+        })
+            .then(function(data) {
+                res.json(data);
+                console.log("POLICEEEEEEEEE DATAAAAAAAA");
+                console.log(data);
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+           
+    });
 
 var nodemailer = require('nodemailer');
 
