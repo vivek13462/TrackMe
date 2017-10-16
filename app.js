@@ -168,7 +168,7 @@ app.post('/', function(req, res) {
     var mailOptions = {
       from: userName, // sender address
       to: 'vivek.13462@gmail.com', // list of receivers
-      subject: 'User Location', // Subject line
+      subject: 'User Location- New Threat Reported', // Subject line
       text: "User Name: " + userName + ', Latitude: ' + userLat + ', Longitude: ' + userLng + ', Message: ' + userMsg, // plaintext body
       html: "User Name: " + userName + ', Latitude: ' + userLat + ', Longitude: ' + userLng + ', Message: ' + userMsg // html body
     };

@@ -9,6 +9,10 @@ router.get('/register', function(req, res){
 	res.render('register');
 });
 
+router.get('/adminregister', function(req, res){
+	res.render('adminregister');
+});
+
 router.get('/maps.html', function(req, res){
 	res.render('maps');
 });
@@ -35,7 +39,7 @@ router.get('/allthreats', function(req, res){
 });
 
 router.get('/chatsection', function(req, res){
-	res.render('ChatSection', {condition:true});
+	res.render('ChatSection');
 });
 
 router.post('/register', function(req, res){
