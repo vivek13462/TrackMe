@@ -34,6 +34,10 @@ router.get('/allthreats', function(req, res){
 	res.render('AllThreats');
 });
 
+router.get('/chatsection', function(req, res){
+	res.render('ChatSection', {condition:true});
+});
+
 router.post('/register', function(req, res){
 	var agent_name = req.body.agent_name;
 	var agent_id = req.body.agent_id;
