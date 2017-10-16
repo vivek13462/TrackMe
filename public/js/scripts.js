@@ -1,7 +1,5 @@
 
 function sendRequest(lat,lng){
-                /*alert(lat);
-                alert(lng);*/
                 var user_lat = lat;
                 var user_lng = lng;
                 var info =[];
