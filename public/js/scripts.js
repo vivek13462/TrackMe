@@ -39,27 +39,20 @@ function user_info(user_param){
             
 }
 
-function showPosition() {
+function FindNearbyPolice() {
     alert("New function");
     //Fetch Police dept nearby
     $.ajax({
         url: "/find/",
         dataType: "json",
-        type: 'GET',
-        success: function(data) {
-
-            //console.log(data);
-            data.businesses.forEach(function(business) {
-                //console.log(business);
-                business.newID = business.id + "123";
-                business.newIDlink = "#" + business.newID;
-                vm.searchResults.push(business);
-                var restaurant = business.name;
-            });
-            
+        type: "GET",
+        contentType: "Application/Json",
+        success: function(data) { 
+            console.log(data);
+            alert("Successful");
         },
-        error: function(xhr, status, error) {
-            console.log("search failed");
+        error: function() {
+            alert("search failed");
         }
     });
 }

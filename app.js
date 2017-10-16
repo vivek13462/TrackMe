@@ -114,16 +114,19 @@ app.get('/Navigate', function (req,res) {
         
         console.log("YELP HITTTT");
         
-        yelp.search({
+       yelp.search({
             term: "police",
            
             location: "Fullerton"
         })
+       
             .then(function(data) {
                 res.json(data);
                 console.log("POLICEEEEEEEEE DATAAAAAAAA");
                 console.log(data);
             })
+        
+        
             .catch(function(err) {
                 console.log(err);
             });

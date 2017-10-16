@@ -6,7 +6,7 @@ router.get('/', ensureAuthenticated, function(req, res){
     if(req.user.agent_name != "Admin")
 	res.render('index',{items: req.user.agent_name, condition:true});
     else if(req.user.agent_name = "Admin")
-        res.render('index',{items: req.user.agent_name, condition:false});
+        res.render('AllThreats',{items: req.user.agent_name, condition:false});
     else
       res.render('index',{items: req.user.agent_name});  
 });
