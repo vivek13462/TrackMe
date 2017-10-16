@@ -4,7 +4,7 @@ var router = express.Router();
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
     if(req.user.agent_name != "Admin")
-	res.render('index',{items: req.user.agent_name, condition:true});
+	res.render('index',{items: req.user.agent_name, condition:true}); //The 'condition' parameter is used in layout.handlebars page.
     else if(req.user.agent_name = "Admin")
         res.render('AllThreats',{items: req.user.agent_name, condition:false});
     else
