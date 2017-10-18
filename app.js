@@ -99,35 +99,18 @@ app.get('/get-allThreats', function (req,res) {
 
 app.post('/Navigate/:info', function (req,res) {
     var user_ll = req.params.info;
-    global.user_ll = req.params.info;
-    res.send(JSON.stringify({
-					"result": req.params.info
-				}));
-});
     
-app.get('/Navigate', function (req,res) {
-    res.send(JSON.stringify({
-					"result": req.params.info
-				}));
-});
-
-app.get('/find', function(req, res) {
-       yelp.search({
+     yelp.search({
             term: "police",
-
-            location: "Fullerton"
-           
-            /*ll: user_ll*/
+            ll: user_ll
         })
             .then(function(data) {
-                
                 res.json(data);
-                console.log("POLICEEEEEEEEE DATAAAAAAAA");
-                
             })
             .catch(function(err) {
                 console.log(err);
             });
+    
 });
 
 var nodemailer = require('nodemailer');

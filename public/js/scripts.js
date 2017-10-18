@@ -10,61 +10,12 @@ function sendRequest(lat,lng){
                         dataType: "json",
                         contentType: "Application/Json",
                         success:function(data){
-                            user_info(data.result);},
-                        error:function(){
-                            alert("error");
-                        }
-                
-            });
-            }
-
-function user_info(user_param){
-                    $.ajax({
-                        url:"/Navigate/",
-                        type: "GET",
-                        dataType: "json",
-                        contentType: "Application/Json",
-                        success:function(data){
-                        location.href="/users/nearpolice/" + user_param
+                            alert("Executing properly");
+                            console.log(data);
+                            location.href="/users/nearpolice/" +data
                         },
                         error:function(){
                             alert("error");
-                        }
-                
+                        }  
             });
-            
-}
-
-/*function FindNearbyPolice() {
-    alert("New function");
-    //Fetch Police dept nearby
-    $.ajax({
-        url: "/find/",
-        dataType: "json",
-        type: "GET",
-        contentType: "Application/Json",
-        success: function(data) { 
-            console.log(data);
-            alert("Successful");
-        },
-        error: function(xhr, status, error) {
-            alert("search failed");
-        }
-    });
-}*/
-
-function FindNearbyPolice() {
- 
-    $.ajax({
-        url: '/find',
-        dataType: "json",
-        contentType: "Application/Json",
-        type: 'GET',
-        success: function(data) {
-            alert("HIII");
-        },
-        error: function(xhr, status, error) {
-            alert("Restaurant search failed");
-        }
-    });
-}
+            }
