@@ -112,18 +112,18 @@ app.get('/Navigate', function (req,res) {
 });
 
 app.get('/find', function(req, res) {
-console.log("YELP HITTTT");
        yelp.search({
             term: "police",
 
-            /*location: "Fullerton",*/
+            location: "Fullerton"
            
-            ll: user_ll
+            /*ll: user_ll*/
         })
             .then(function(data) {
+                
                 res.json(data);
                 console.log("POLICEEEEEEEEE DATAAAAAAAA");
-                console.log(data);
+                
             })
             .catch(function(err) {
                 console.log(err);

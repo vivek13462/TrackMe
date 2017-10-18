@@ -4,8 +4,6 @@ function sendRequest(lat,lng){
                 var user_lng = lng;
                 var info =[];
                 info[0]=user_lat; info[1]=user_lng
-                 alert(info[0]);
-                 alert(info[1]);
                     $.ajax({
                         url:"/Navigate/" + info,
                         type: "POST",
@@ -37,7 +35,7 @@ function user_info(user_param){
             
 }
 
-function FindNearbyPolice() {
+/*function FindNearbyPolice() {
     alert("New function");
     //Fetch Police dept nearby
     $.ajax({
@@ -49,8 +47,24 @@ function FindNearbyPolice() {
             console.log(data);
             alert("Successful");
         },
-        error: function() {
+        error: function(xhr, status, error) {
             alert("search failed");
+        }
+    });
+}*/
+
+function FindNearbyPolice() {
+ 
+    $.ajax({
+        url: '/find',
+        dataType: "json",
+        contentType: "Application/Json",
+        type: 'GET',
+        success: function(data) {
+            alert("HIII");
+        },
+        error: function(xhr, status, error) {
+            alert("Restaurant search failed");
         }
     });
 }
