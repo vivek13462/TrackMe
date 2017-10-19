@@ -97,6 +97,12 @@ app.get('/get-allThreats', function (req,res) {
   });
 });
 
+app.get('/fetching_yelpdata/:yelpdata', function (req,res) {
+  
+   // console.log(req.params.yelpdata.display_phone);
+    //res.render('NearbyPolice', {items: req.params.yelpdata});
+  });
+
 app.post('/Navigate/:info', function (req,res) {
     var user_ll = req.params.info;
     
@@ -105,6 +111,7 @@ app.post('/Navigate/:info', function (req,res) {
             ll: user_ll
         })
             .then(function(data) {
+         console.log(data.businesses[2].name);
                 res.json(data);
             })
             .catch(function(err) {
