@@ -18,15 +18,16 @@ ko.applyBindings(vm);
                         dataType: "json",
                         contentType: "Application/Json",
                         success:function(data){
-                            console.log(data.region);
-                            alert("Executing properly");
-                            data.businesses.forEach(function(business) {
-                            business.newID = business.id + "123";
-                            business.newIDlink = "#" + business.newID;
-                            alert(data.businesses[0].name);
-                            vm.searchResults.push(business);
-                            })
-                            location.href="/fetching_yelpdata/" +vm.searchResults;
+                            for (i = 0; i < data.businesses.length; i++){
+                            alert(data.businesses.length);
+                            alert(data.businesses[i].name);
+                            alert(data.businesses[i].phone);
+                            alert(data.businesses[i].location.display_address);
+                                var x = document.createElement("LABEL");
+                                var t = document.createTextNode("Male");
+                                var parentTextBox = window.opener.document.getElementById('male');
+                                }
+                            location.href="/fetching_yelpdata/";
                             
                         },
                         error:function(){
