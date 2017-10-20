@@ -97,10 +97,10 @@ app.get('/get-allThreats', function (req,res) {
   });
 });
 
-app.get('/fetching_yelpdata', function (req,res) {
+app.get('/fetching_yelpdata/:policeInfo', function (req,res) {
   
-   // console.log(req.params.yelpdata.display_phone);
-    res.render('NearbyPolice');
+   console.log(req.params.policeInfo);
+    res.render('NearbyPolice', {items: req.params.policeInfo});
   });
 
 app.post('/Navigate/:info', function (req,res) {
