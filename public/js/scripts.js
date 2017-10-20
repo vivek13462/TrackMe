@@ -11,10 +11,20 @@ function sendRequest(lat,lng){
                         dataType: "json",
                         contentType: "Application/Json",
                         success:function(data){
-                            var policeInfo =[];
+                           /* var policeInfo =[];
                             policeInfo[0]=data.businesses[0].name;
                             policeInfo[1]=data.businesses[0].phone;
                             policeInfo[2]=data.businesses[0].location.display_address;
+                            location.href="/fetching_yelpdata/" +policeInfo;*/
+                            
+                            
+                            var policeInfo = [
+                                       {
+                                     "name":data.businesses[0].name,
+                                      "phone":data.businesses[0].phone,
+                                      "address":data.businesses[0].location.display_address
+                                          }
+                                       ]; 
                             location.href="/fetching_yelpdata/" +policeInfo;
                             
                         },
