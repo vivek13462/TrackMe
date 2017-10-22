@@ -26,22 +26,24 @@ function sendRequest(lat,lng){
             }
 
 
-function UpdateStatus(lat,lng){
-                alert("STATUS UPDATING..!");
-     $.ajax({
-                        url:"/updateStatus/",
-                        type: "GET",
+
+function ChangeStatus(userName){
+        
+                       $.ajax({
+                        url:"/updateStatus/" + userName,
+                        type: "POST",
                         dataType: "json",
                         contentType: "Application/Json",
                         success:function(data){
                             alert("Success");
+                            
                         },
                         error:function(){
                             alert("error");
                         }  
             });
    
-            }
+} 
 
 
 

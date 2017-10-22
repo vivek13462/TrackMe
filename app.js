@@ -119,12 +119,10 @@ app.post('/Navigate/:info', function (req,res) {
     
 });
 
-app.get('/updateStatus', function (req,res) {
-  var user = req.user.agent_id;
-  db.collection('locations').find({ }).toArray(function (err, resultArray) {
-    if (err) return console.log(err);
-    res.render('AllThreats', {items: resultArray,status:"Complete"});
-  });
+app.post('/updateStatus/:userName', function (req,res) {
+    console.log(req.params.userName);
+    db.collection('locations').update({username:req.params.userName}, {$set: {status:"Complete"}})
+ 
 });
 
 var nodemailer = require('nodemailer');
@@ -156,7 +154,8 @@ app.post('/', function(req, res) {
     db.collection('locations').insert({
       "username": userName,
       "userid": userId,
-      "location": userLocation
+      "location": userLocation,
+      "status": "Pending"
     });
 
     console.log('saved to database');
