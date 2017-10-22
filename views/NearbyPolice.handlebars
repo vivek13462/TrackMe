@@ -1,16 +1,22 @@
-<div class="container container-table">
-    <div class="row vertical-center-row">
-        <div class="text-center col-md-4 col-md-offset-4">
-          <h2>Find Nearby Ploice</h2>    
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <form method="post" class="form">
-                <div class="form-group"><label>Search Location</label><input class="form-control" type="text" name="txtPlaces" placeholder="Enter a location"></div> 
-                  <h1>Welcome <i>{{items}}!!</i></h1>
-                  <img src="http://s3-media2.fl.yelpcdn.com/bphoto/MmgtASP3l_t4tPCL1iAsCg/o.jpg" alt="image" class="circle">
-              </form>
-            </div>
-          </div>
-        </div>
-    </div>
+<div class="container">
+    <h1>Nearby Police Info:</h1>
+  <table class="table table-bordered">
+    <tr>
+      <th>Police Department</th>
+      <th>Contact no</th>    
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th> 
+      <th>Inform Them</th> 
+    </tr>
+    <tr>
+      <td>{{ name}}</td>    
+      <td>{{ phone}}</td>
+      <td>{{ address}}</td>
+      <td>{{ city}}</td>
+      <td>{{ state}}</td>
+      <td><h3 class="text-center"><button onclick="sendRequest('{{ this.location.lat}}','{{ this.location.lng}}')" class="btn btn-primary">Email</button></h3>
+      <h3 class="text-center"><button onclick="sendRequest('{{ this.location.lat}}','{{ this.location.lng}}')" class="btn btn-primary"> Message</button></h3></td>
+    </tr>
+  </table>
 </div>

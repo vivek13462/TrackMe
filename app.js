@@ -98,9 +98,9 @@ app.get('/get-allThreats', function (req,res) {
 });
 
 app.get('/fetching_yelpdata/:policeInfo', function (req,res) {
-  
-   console.log(req.params.policeInfo[0]);
-    res.render('NearbyPolice', {items: req.params.policeInfo});
+  var data= req.params.policeInfo
+  var dataArray = data.split(",");
+    res.render('NearbyPolice', {name: dataArray[0],phone: dataArray[1],address: dataArray[2],city: dataArray[3],state: dataArray[4]});
   });
 
 app.post('/Navigate/:info', function (req,res) {
