@@ -119,6 +119,14 @@ app.post('/Navigate/:info', function (req,res) {
     
 });
 
+app.get('/updateStatus', function (req,res) {
+  var user = req.user.agent_id;
+  db.collection('locations').find({ }).toArray(function (err, resultArray) {
+    if (err) return console.log(err);
+    res.render('AllThreats', {items: resultArray,status:"Complete"});
+  });
+});
+
 var nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport

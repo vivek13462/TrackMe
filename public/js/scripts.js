@@ -26,4 +26,22 @@ function sendRequest(lat,lng){
             }
 
 
+function UpdateStatus(lat,lng){
+                alert("STATUS UPDATING..!");
+     $.ajax({
+                        url:"/updateStatus/",
+                        type: "GET",
+                        dataType: "json",
+                        contentType: "Application/Json",
+                        success:function(data){
+                            alert("Success");
+                        },
+                        error:function(){
+                            alert("error");
+                        }  
+            });
+   
+            }
+
+
 

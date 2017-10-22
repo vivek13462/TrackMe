@@ -7,6 +7,7 @@
       <th>Latitude</th>
       <th>Longitude</th>
       <th>Message</th>
+      <th>Status</th>
       <th>Help User</th>    
     </tr>
     {{# each items as |item index|}}
@@ -16,6 +17,7 @@
       <td id="lat">{{ this.location.lat}}</td>
       <td id="lng">{{ this.location.lng}}</td>
       <td id="msg">{{ this.location.message}}</td>
+      <td id="msg">{{status}}</td>
       <td><h3 class="text-center"><button onclick="sendRequest('{{ this.location.lat}}','{{ this.location.lng}}')" class="btn btn-primary">Navigate</button></h3></td>
     </tr>
     {{/each}}
