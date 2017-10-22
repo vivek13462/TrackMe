@@ -33,17 +33,9 @@ function ChangeStatus(userName){
                         url:"/updateStatus/" + userName,
                         type: "POST",
                         dataType: "json",
-                        contentType: "Application/Json",
-                        success:function(data){
-                            alert("Success");
-                            
-                        },
-                        error:function(){
-                            alert("error");
-                        }  
+                        contentType: "Application/Json" 
             });
    
 } 
-
 
 

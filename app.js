@@ -14,8 +14,8 @@ var Yelp = require("yelp");
 var configAuth = require('./config/auth');
 var yelp = new Yelp(configAuth.yelp);
 
-mongoose.connect('mongodb://cpsc473:webdev@ds053146.mlab.com:53146/473projects');
-/*mongoose.connect('mongodb://vivek.13462:montuu8088@ds115035.mlab.com:15035/trs');*/
+/*mongoose.connect('mongodb://cpsc473:webdev@ds053146.mlab.com:53146/473projects');*/
+mongoose.connect('mongodb://vivek.13462:montuu8088@ds115035.mlab.com:15035/trs');
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -120,8 +120,8 @@ app.post('/Navigate/:info', function (req,res) {
 });
 
 app.post('/updateStatus/:userName', function (req,res) {
-    console.log(req.params.userName);
     db.collection('locations').update({username:req.params.userName}, {$set: {status:"Complete"}})
+    db.collection('locations').update({username:req.params.userName}, {$set: {clientStatus:"Police is on the way"}})
  
 });
 
@@ -155,7 +155,8 @@ app.post('/', function(req, res) {
       "username": userName,
       "userid": userId,
       "location": userLocation,
-      "status": "Pending"
+      "status": "Pending",
+      "clientStatus": "In Progress"
     });
 
     console.log('saved to database');
