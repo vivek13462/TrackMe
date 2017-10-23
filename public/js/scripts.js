@@ -39,10 +39,10 @@ function ChangeStatus(userName){
 } 
 
 
-function InformPolice(){
+function InformPolice(source_address){
         
                        $.ajax({
-                        url:"/sendSMS/" ,
+                        url:"/sendSMS/" + source_address ,
                         type: "POST",
                         dataType: "json",
                         contentType: "Application/Json",

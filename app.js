@@ -125,7 +125,8 @@ app.post('/updateStatus/:userName', function (req,res) {
  
 });
 
-app.post('/sendSMS', function (req,res) {
+app.post('/sendSMS/:source_address', function (req,res) {
+var source = req.params.source_address;    
 const Nexmo = require('nexmo');
 const nexmo = new Nexmo({
   apiKey: "5c171cf4",
@@ -134,7 +135,7 @@ const nexmo = new Nexmo({
  
  
 nexmo.message.sendSms(
-  '12013514504', '16572818186', 'Help user at location',
+  '12013514504', '16572818186', 'Help user from location' + source,
     (err, responseData) => {
       if (err) {
         console.log(err);
