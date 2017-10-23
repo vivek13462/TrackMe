@@ -1,6 +1,11 @@
 
 
-function sendRequest(lat,lng){
+function sendRequest(lat,lng,status){
+                           if(status == "Complete")
+                           {
+                               alert("Case Already Reported");
+                           }
+    else{
                 var user_lat = lat;
                 var user_lng = lng;
                 var info =[];
@@ -22,21 +27,21 @@ function sendRequest(lat,lng){
                             alert("error");
                         }  
             });
+        }
    
             }
 
 
 
 function ChangeStatus(userName){
-        
+    
                        $.ajax({
                         url:"/updateStatus/" + userName,
                         type: "POST",
                         dataType: "json",
                         contentType: "Application/Json" 
             });
-   
-} 
+        } 
 
 
 function InformPolice(source_address){

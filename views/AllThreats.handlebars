@@ -19,7 +19,7 @@
       <td id="lng">{{ this.location.lng}}</td>
       <td id="msg">{{ this.location.message}}</td>
       <td id="status">{{this.status}}</td>
-      <td><h3 class="text-center"><button onclick="sendRequest('{{ this.location.lat}}','{{ this.location.lng}}');ChangeStatus('{{this.username}}');" class="btn btn-primary">Navigate</button></h3></td>
+      <td><h3 class="text-center"><button onclick="sendRequest('{{ this.location.lat}}','{{ this.location.lng}}','{{this.status}}');ChangeStatus('{{this.username}}');" class="btn btn-primary">Navigate</button></h3></td>
     </tr>
     {{/each}}
   </table>
