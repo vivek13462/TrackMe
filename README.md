@@ -1,6 +1,6 @@
-# <a href="https://geotracker-473.herokuapp.com" target="_blank">GeoTracker</a>
+# <a href="https://trs-cpsc597.herokuapp.com/" target="_blank">TRS</a>
 
-A Web application that helps users to reachout to government officials to report their current location and send message. 
+A Web application that helps users to report threat to the police department on single button click. 
 
 <a href="https://nodejs.org/en/">Node.js</a> | <a href="https://expressjs.com/">Express 4</a> | <a href="https://www.heroku.com/">Heroku Cloud Platform</a> | <a href="http://passportjs.org/">passport js authentication</a> | <a href="https://www.mongodb.com/">MongoDB</a> | <a href="http://mongoosejs.com/">Mongoose ODM</a> | <a href="http://getbootstrap.com/">Bootstrap framework</a>
 
@@ -26,5 +26,5 @@ A Web application that helps users to reachout to government officials to report
 <li>The web application will present itself</li>
 </ul>
 
-Application can also be accessed online at https://geotracker-473.herokuapp.com/. Application works best on <a href="https://www.mozilla.org/en-US/firefox/products/">firefox</a> Browser.  
+Application can also be accessed online at https://trs-cpsc597.herokuapp.com/. Application works best on <a href="https://www.mozilla.org/en-US/firefox/products/">firefox</a> Browser.  
 
