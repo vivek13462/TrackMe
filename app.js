@@ -125,6 +125,29 @@ app.post('/updateStatus/:userName', function (req,res) {
  
 });
 
+app.post('/sendSMS', function (req,res) {
+const Nexmo = require('nexmo');
+const nexmo = new Nexmo({
+  apiKey: "5c171cf4",
+  apiSecret: "b53eed2bba15618f"
+});
+ 
+ 
+nexmo.message.sendSms(
+  '12013514504', '16572818186', 'Help user at location',
+    (err, responseData) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.dir(responseData);
+      }
+    }
+ );
+
+    
+ res.json({'result': "SMS successfully sent!"});
+});
+
 var nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport

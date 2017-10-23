@@ -39,3 +39,19 @@ function ChangeStatus(userName){
 } 
 
 
+function InformPolice(){
+        
+                       $.ajax({
+                        url:"/sendSMS/" ,
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "Application/Json",
+                        success:function(data){
+                            alert(data.result);
+                            
+                        }
+            });
+   
+} 
+
+
