@@ -104,7 +104,7 @@ app.get('/fetching_yelpdata/:policeInfo', function (req,res) {
   });
 
 app.post('/Navigate/:info', function (req,res) {
-    var user_ll = req.params.info;
+     global.user_ll = req.params.info;
     
      yelp.search({
             term: "police",
@@ -126,7 +126,9 @@ app.post('/updateStatus/:userName', function (req,res) {
 });
 
 app.post('/sendSMS/:source_address', function (req,res) {
-var source = req.params.source_address;    
+var source = req.params.source_address;  
+var destination = user_ll;
+var origin = source.split(' ').join('+');
 const Nexmo = require('nexmo');
 const nexmo = new Nexmo({
   apiKey: "5c171cf4",
@@ -135,7 +137,7 @@ const nexmo = new Nexmo({
  
  
 nexmo.message.sendSms(
-  '12013514504', '16572818186', 'Help user from location' + source,
+  '12013514504', '16572818186', 'https://www.google.com/maps/dir/?api=1&origin=' + origin +'&destination=' + destination,
     (err, responseData) => {
       if (err) {
         console.log(err);
