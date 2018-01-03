@@ -33,6 +33,10 @@ router.get('/allthreats', function(req, res){
 	res.render('AllThreats');
 });
 
+router.get('/graph', function(req, res){
+	res.render('graphicalView');
+});
+
 router.get('/chatsection', function(req, res){
 	res.render('ChatSection');
 });

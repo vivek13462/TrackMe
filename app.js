@@ -97,6 +97,13 @@ app.get('/get-allThreats', function (req,res) {
   });
 });
 
+app.get('/get-count', function (req,res) {
+  var noOfReports = db.collection('locations').find({userCity: { $in: ["Khopoli, Maharashtra, India", "Vrundavan Nagar, Khopoli, Maharashtra 410203, India", "Mogalwadi, Khopoli, Maharashtra 410203, India","Saphale, Sri Swami Samarth Nagar, Khopoli, Maharashtra 410203, India"]} }).count({}, function( err, count){
+      console.log(count);
+   res.json({'count': count});
+})
+});
+
 app.get('/fetching_yelpdata/:policeInfo', function (req,res) {
   var data= req.params.policeInfo
   var dataArray = data.split(",");
@@ -160,6 +167,7 @@ app.post('/', function(req, res) {
   var userLat = req.body.lat;
   var userLng = req.body.lng;
   var userMsg = req.body.msg;
+  var city = req.body.city;    
   var userName;
   var userLocation = {
         lat: userLat,
@@ -181,6 +189,7 @@ app.post('/', function(req, res) {
       "username": userName,
       "userid": userId,
       "location": userLocation,
+      "userCity": city,
       "status": "Pending",
       "clientStatus": "In Progress"
     });

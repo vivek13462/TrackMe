@@ -36,6 +36,7 @@ function init() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+       
         
       // Inserts a message and geo coords of the user.
       // Also creates a button to send the user's info to the FBI.
@@ -43,7 +44,7 @@ function init() {
         '<p>Latitude: ' + pos.lat + '</p>' +
         '<p>Longitude: ' + pos.lng + '</p>' +
         '<textarea id="textbox" rows=4 cols=39>Enter your message</textarea>' +
-        '<p><input class="btn btn-primary" type="submit" id="giantMess" onclick=sendInfo() value="Report Threat" /></p>';
+        '<p><input class="btn btn-primary" type="submit" id="giantMess" onclick=findCity(pos.lat,pos.lng); value="Report Threat" /></p>';
 
       infoWindow = new google.maps.InfoWindow({
         content: infoWindowContents
@@ -92,7 +93,7 @@ function loadGoogleScript() {
 window.onload = loadGoogleScript;
 
 // Sending Information to the Server.
-var sendInfo = function() {
+var sendInfo = function(cityName) {
   // Grabing users postion and message.
   var message = $('#textbox').val();
   pos.message = message;
@@ -102,7 +103,7 @@ var sendInfo = function() {
     url: '/',
     type: 'post',
     dataType: 'json',
-    data: JSON.stringify({"lat": pos.lat, "lng": pos.lng, "msg": pos.message }),
+    data: JSON.stringify({"lat": pos.lat, "lng": pos.lng, "msg": pos.message, "city": cityName }),
     contentType: 'application/json',
     success: function(data)
     {
@@ -116,3 +117,18 @@ var sendInfo = function() {
 $('#sendFBI').on('click', function() {
   sendInfo();
 });
+
+function findCity(lat,lng){
+     
+         $.ajax({
+                        url:'http://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&sensor=true',
+                        type: "GET",
+                        dataType: "json",
+                        async: false,
+                        success:function(data){
+                            alert(data.results[2].formatted_address);
+                            sendInfo(data.results[2].formatted_address);
+                            
+                        }
+            });
+}
