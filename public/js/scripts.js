@@ -74,7 +74,7 @@ var myChart = new Chart(ctx, {
         labels: ["Fullerton", "Los Angeles", "Manhattan", "Detroit", "Boston", "Dallas"],
         datasets: [{
             label: '# of Crimes',
-            data: [data.count, 19, 3, 5, 2, 3],
+            data: [data.count, 4, 3, 15, 2, 8],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

@@ -86,7 +86,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // This is to separate the JS from HTML.
 function loadGoogleScript() {
   var myScript = document.createElement('script');
-  myScript.src = 'http://maps.googleapis.com/maps/api/js?key=AIzaSyCDu1j-5rGFm1JyXdu6U3Y3YxNJ9fh_784&callback=init'
+  myScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCDu1j-5rGFm1JyXdu6U3Y3YxNJ9fh_784&callback=init'
   document.body.appendChild(myScript);
 }
 
