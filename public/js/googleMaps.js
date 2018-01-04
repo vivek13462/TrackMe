@@ -121,7 +121,7 @@ $('#sendFBI').on('click', function() {
 function findCity(lat,lng){
      
          $.ajax({
-                        url:'http://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&sensor=true',
+                        url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&sensor=true',
                         type: "GET",
                         dataType: "json",
                         async: false,
