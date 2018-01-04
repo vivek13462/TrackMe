@@ -44,7 +44,7 @@ function init() {
         '<p>Latitude: ' + pos.lat + '</p>' +
         '<p>Longitude: ' + pos.lng + '</p>' +
         '<textarea id="textbox" rows=4 cols=39>Enter your message</textarea>' +
-        '<p><input class="btn btn-primary" type="submit" id="giantMess" onclick=findCity(pos.lat,pos.lng); value="Report Threat" /></p>';
+        '<p><input class="btn btn-primary" type="submit" id="giantMess" onclick=sendInfo(); value="Report Threat" /></p>';
 
       infoWindow = new google.maps.InfoWindow({
         content: infoWindowContents
@@ -103,7 +103,7 @@ var sendInfo = function(cityName) {
     url: '/',
     type: 'post',
     dataType: 'json',
-    data: JSON.stringify({"lat": pos.lat, "lng": pos.lng, "msg": pos.message, "city": cityName }),
+    data: JSON.stringify({"lat": pos.lat, "lng": pos.lng, "msg": pos.message }),
     contentType: 'application/json',
     success: function(data)
     {
@@ -118,7 +118,7 @@ $('#sendFBI').on('click', function() {
   sendInfo();
 });
 
-function findCity(lat,lng){
+/*function findCity(lat,lng){
      
          $.ajax({
                         url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&sensor=true',
@@ -131,4 +131,4 @@ function findCity(lat,lng){
                             
                         }
             });
-}
+}*/
