@@ -110,5 +110,8 @@ var myChart = new Chart(ctx, {
                         }  
             });
         }
-
+function SuccessUpload(){
+        
+                     alert("Footage sent to Police Department");
+} 
 

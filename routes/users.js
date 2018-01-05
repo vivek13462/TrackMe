@@ -29,8 +29,16 @@ router.get('/sentlocations', function(req, res){
 	res.render('sentlocations', {condition:true});
 });
 
+router.get('/sendfootage', function(req, res){
+	res.render('footage', {condition:true});
+});
+
 router.get('/allthreats', function(req, res){
 	res.render('AllThreats');
+});
+
+router.get('/checkFootage', function(req, res){
+	res.render('checkFootage');
 });
 
 router.get('/graph', function(req, res){

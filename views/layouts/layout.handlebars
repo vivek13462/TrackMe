@@ -28,12 +28,14 @@
             {{#if user.agent_name}}
               {{#if condition}}
             <li><a href="/">Dashboard</a></li>
+              <li><a href="/users/sendfootage">Send Footage</a></li>
             <li><a href="/users/sentlocations">Sent Locations</a></li> 
             <li><a href="/users/logout">Logout</a></li>
               {{else}}
             <li><a href="/users/allthreats">All Threats Report</a></li>
-            <li><a href="/users/logout">Logout</a></li>
+              <li><a href="/users/checkFootage">Check Footage</a></li>
             <li><a href="/users/graph">Graphs</a></li>
+            <li><a href="/users/logout">Logout</a></li>
               {{/if}}
             {{else}}
             <li><a href="/users/login">Login</a></li>

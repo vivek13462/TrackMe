@@ -13,6 +13,9 @@ var mongoose = require('mongoose');
 var Yelp = require("yelp");
 var configAuth = require('./config/auth');
 var yelp = new Yelp(configAuth.yelp);
+var multer = require('multer');
+
+var Gallery = require('express-photo-gallery');
 
 /*mongoose.connect('mongodb://cpsc473:webdev@ds053146.mlab.com:53146/473projects');*/
 mongoose.connect('mongodb://vivek.13462:montuu8088@ds115035.mlab.com:15035/trs');
@@ -97,12 +100,44 @@ app.get('/get-allThreats', function (req,res) {
   });
 });
 
+
+
+
+
+var options = {
+  title: 'Crime Footage'
+};
+ 
+app.use('/crimeFootage', Gallery('crime_footage', options));
+
 app.get('/get-count', function (req,res) {
   var noOfReports = db.collection('locations').find({userCity: { $in: ["Khopoli, Maharashtra, India", "Vrundavan Nagar, Khopoli, Maharashtra 410203, India", "Mogalwadi, Khopoli, Maharashtra 410203, India","Saphale, Sri Swami Samarth Nagar, Khopoli, Maharashtra 410203, India"]} }).count({}, function( err, count){
       console.log(count);
    res.json({'count': count});
 })
 });
+
+ var Storage = multer.diskStorage({
+     destination: function(req, file, callback) {
+         callback(null, "./crime_footage");
+     },
+     filename: function(req, file, callback) {
+         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
+     }
+ });
+
+ var upload = multer({
+     storage: Storage
+ }).array("imgUploader", 3); //Field name and max count
+
+app.post("/footageUpload", function(req, res) {
+     upload(req, res, function(err) {
+         if (err) {
+             return res.end("Something went wrong!");
+         }
+         res.render('sentlocations', {condition:true});
+     });
+ });
 
 app.get('/fetching_yelpdata/:policeInfo', function (req,res) {
   var data= req.params.policeInfo
