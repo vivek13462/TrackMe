@@ -190,7 +190,7 @@ app.post('/', function(req, res) {
       "userid": userId,
       "location": userLocation,
       "userCity": city,
-      "status": "Pending",
+      "status": "",
       "clientStatus": "In Progress"
     });
 

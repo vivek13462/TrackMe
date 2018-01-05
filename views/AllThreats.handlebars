@@ -20,7 +20,11 @@
       <td id="lng">{{ this.location.lng}}</td>
         <td id="lng">{{ this.userCity}}</td>
       <td id="msg">{{ this.location.message}}</td>
-      <td id="status">{{this.status}}</td>
+        {{#if this.status}}
+        <td id="status"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+        {{else}}
+        <td id="status"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></td>
+        {{/if}}
       <td><h3 class="text-center"><button onclick="sendRequest('{{ this.location.lat}}','{{ this.location.lng}}','{{this.status}}');ChangeStatus('{{this.username}}');" class="btn btn-primary">Navigate</button></h3></td>
     </tr>
     {{/each}}
