@@ -184,6 +184,7 @@ nexmo.message.sendSms(
       if (err) {
         console.log(err);
       } else {
+          console.log("YESS");
         console.dir(responseData);
       }
     }
@@ -196,7 +197,7 @@ nexmo.message.sendSms(
 var nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport
-var transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: 'nodemailer212@gmail.com', pass: 'jazzMuhtazz' } });
+var transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: 'tom.masonchill@gmail.com', pass: 'tommasonchill' } });
 
 app.post('/', function(req, res) {
   var userLat = req.body.lat;
