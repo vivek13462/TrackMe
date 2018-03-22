@@ -20,6 +20,7 @@
     "express-photo-gallery": "^1.0.9",
     "express-session": "^1.14.1",
     "express-validator": "^2.20.10",
+    "fs": "0.0.1-security",
     "handlebars-helper-equal": "^1.0.0",
     "mongodb": "^2.2.10",
     "mongoose": "^4.6.3",
@@ -31,6 +32,9 @@
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
     "plotly": "^1.0.6",
+    "textbelt": "0.0.3",
+    "textmagic-rest-client": "^1.0.9",
+    "twilio": "^3.13.1",
     "yelp": "^1.0.2"
   }
 }

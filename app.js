@@ -101,9 +101,6 @@ app.get('/get-allThreats', function (req,res) {
 });
 
 
-
-
-
 var options = {
   title: 'Crime Footage'
 };
@@ -111,7 +108,7 @@ var options = {
 app.use('/crimeFootage', Gallery('crime_footage', options));
 
 app.get('/get-count', function (req,res) {
-  var noOfReports = db.collection('locations').find({userCity: { $in: ["Khopoli, Maharashtra, India", "Vrundavan Nagar, Khopoli, Maharashtra 410203, India", "Mogalwadi, Khopoli, Maharashtra 410203, India","Saphale, Sri Swami Samarth Nagar, Khopoli, Maharashtra 410203, India"]} }).count({}, function( err, count){
+  var noOfReports = db.collection('locations').find({userCity: { $in: ["Fullerton, CA 92831, USA"]} }).count({}, function( err, count){
       console.log(count);
    res.json({'count': count});
 })
@@ -171,7 +168,7 @@ app.post('/sendSMS/:source_address', function (req,res) {
 var source = req.params.source_address;  
 var destination = user_ll;
 var origin = source.split(' ').join('+');
-const Nexmo = require('nexmo');
+/*const Nexmo = require('nexmo');
 const nexmo = new Nexmo({
   apiKey: "5c171cf4",
   apiSecret: "b53eed2bba15618f"
@@ -188,8 +185,25 @@ nexmo.message.sendSms(
         console.dir(responseData);
       }
     }
- );
+ );*/
 
+ // Twilio Credentials
+const accountSid = 'ACd7bc7aa1ebb76f11a5748151885a7a6a';
+const authToken = 'd7968a3f67dceb70cfc0ee691102646e';
+
+// require the Twilio module and create a REST client
+const client = require('twilio')(accountSid, authToken);
+
+client.messages.create(
+  {
+    to: '+16572818186',
+    from: '+19103569235',
+    body: 'https://www.google.com/maps/dir/?api=1&origin=' + origin +'&destination=' + destination,
+  },
+  (err, message) => {
+    console.log(message.sid);
+  }
+);
     
  res.json({'result': "SMS successfully sent!"});
 });
