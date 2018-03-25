@@ -25,7 +25,7 @@
         {{else}}
         <td id="status"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></td>
         {{/if}}
-      <td><h3 class="text-center"><button onclick="ChangeStatus('{{this.username}}');sendRequest('{{ this.location.lat}}','{{ this.location.lng}}','{{this.status}}');" class="btn btn-primary">Navigate</button></h3></td>
+      <td><h3 class="text-center"><button onclick="ChangeStatus('{{this.username}}');sendRequest('{{ this.location.lat}}','{{ this.location.lng}}','{{this.status}}');" class="btn btn-primary">Report</button></h3></td>
     </tr>
     {{/each}}
   </table>
